@@ -11,7 +11,7 @@ before_build:
   - ps: Add-Content "$env:USERPROFILE\.git-credentials" "https://$($env:access_token):x-oauth-basic@github.com`n"
   - git config --global user.email "vscopbld@microsoft.com"
   - git config --global user.name "OpenPublishBuild"
-  - git clone -q --branch=CIIntegration https://github.com/Azure/azure-docs-rest-apis.git
+  - git clone -q --branch=CIIntegration_fork https://github.com/Azure/azure-docs-rest-apis.git
   
 build_script:
   - ps: azure-docs-rest-apis\build.ps1
@@ -19,5 +19,5 @@ build_script:
 on_success:
   - cd azure-docs-rest-apis
   - git add .
-  - git diff --quiet --exit-code --cached || git commit -m "Rest document Updated by CI" && git push origin CIIntegration
+  - git diff --quiet --exit-code --cached || git commit -m "Rest document Updated by CI" && git push origin CIIntegration_fork
   - appveyor AddMessage "Rest document Updated"
