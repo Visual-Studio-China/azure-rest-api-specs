@@ -14,7 +14,7 @@ before_build:
   - git clone -q --branch=CIIntegration https://github.com/Azure/azure-docs-rest-apis.git
   
 build_script:
-  - ps: azure-docs-rest-apis\build.ps1
+  - ps: azure-docs-rest-apis\scripts\build.ps1
 
 on_success:
   - cd azure-docs-rest-apis
