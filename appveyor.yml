@@ -6,7 +6,7 @@ environment:
 
 before_build:
   - ps: |
-        if($env:APPVEYOR_REPO_COMMIT_AUTHOR == "hellosnow")
+        if($env:APPVEYOR_REPO_COMMIT_AUTHOR -eq "hellosnow")
         {
           echo "test before_build"
         }
