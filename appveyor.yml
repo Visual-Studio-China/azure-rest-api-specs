@@ -8,17 +8,11 @@ environment:
 
 before_build:
   - ps: |
-        $env:A=$true
-        if($env:A)
-        {
-          echo "test A"
-        }
         if($env:APPVEYOR_SCHEDULED_BUILD -or ($env:APPVEYOR_REPO_COMMIT_AUTHOR -eq $env:opbuilduser))
         {
-          $env:shouldRun=$true
-          echo "yes"
+          $env:IS_BUILD_ENABLED=$true
         }
-        if($env:shouldRun)
+        if($env:IS_BUILD_ENABLED)
         {
           echo "test before_build"
         }
@@ -27,7 +21,6 @@ build_script:
   - ps: echo "test build_script"
 
 on_success:
-  - |
-    if "%shouldRun%" (
-        echo "test on_success"
-    )
+  - if "%IS_BUILD_ENABLED%" {
+      echo "test on_success"
+    }
