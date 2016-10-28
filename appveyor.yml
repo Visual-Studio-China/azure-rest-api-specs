@@ -16,4 +16,4 @@ build_script:
 
 on_success:
   - echo %APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL%
-  - if %APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL% == "hxyjessie@gmail.com" echo "test on_success" 
+  - if "a" == "a" echo "test on_success" 
