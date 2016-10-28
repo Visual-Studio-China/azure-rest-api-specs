@@ -23,6 +23,5 @@ build_script:
 on_success:
   - echo "%IS_BUILD_ENABLED%"
   - if "%IS_BUILD_ENABLED%" == "True" (
-      echo "test on_success"
-      echo "test on_success a"
+      echo "test on_success" && echo "test on_success a"
     )
