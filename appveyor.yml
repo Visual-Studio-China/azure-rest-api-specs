@@ -5,7 +5,8 @@ environment:
     secure: JWSy9tPo2eoTYpPQplvokf4IiVk6onNBbWwAs6nNWWyQ2JaO+MRAg/QzbJnTjpUm
 
 before_build:
-  - ps: if($env:APPVEYOR_SCHEDULED_BUILD -or ($env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL -eq "hxyjessie@gmail.com"))
+  - ps: |
+        if($env:APPVEYOR_SCHEDULED_BUILD -or ($env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL -eq "hxyjessie@gmail.com"))
         {
           echo "test before_build"
         }
@@ -15,6 +16,6 @@ build_script:
 
 on_success:
   - echo %APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL%
-  - if "a" == "a" (
+  - if "%APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL%" == "hxyjessie@gmail.com" (
       echo "test on_success"
     )
