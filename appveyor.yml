@@ -11,6 +11,7 @@ before_build:
         if($env:APPVEYOR_SCHEDULED_BUILD -or ($env:APPVEYOR_REPO_COMMIT_AUTHOR -eq $env:opbuilduser))
         {
           $env:shouldRun=true
+          echo "yes"
         }
         if($env:shouldRun)
         {
@@ -21,6 +22,7 @@ build_script:
   - ps: echo "test build_script"
 
 on_success:
+  - echo %shouldRun%
   - if "%shouldRun%" (
         echo "test on_success"
     )
