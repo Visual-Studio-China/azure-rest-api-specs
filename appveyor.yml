@@ -21,6 +21,7 @@ build_script:
   - ps: echo "test build_script"
 
 on_success:
+  - appveyor AddMessage "Rest document Updated"
   - echo "%IS_BUILD_ENABLED%"
   - if "%IS_BUILD_ENABLED%" == "True" (
       echo "test on_success" && echo "test on_success a"
