@@ -5,8 +5,7 @@ environment:
     secure: JWSy9tPo2eoTYpPQplvokf4IiVk6onNBbWwAs6nNWWyQ2JaO+MRAg/QzbJnTjpUm
 
 before_build:
-  - ps: |
-        | echo "$env:APPVEYOR_REPO_COMMIT_AUTHOR"
+  - ps: | echo "$env:APPVEYOR_REPO_COMMIT_AUTHOR"
         | if($env:APPVEYOR_REPO_COMMIT_AUTHOR -eq "hellosnow")
         {
           echo "test before_build"
