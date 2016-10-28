@@ -21,4 +21,4 @@ build_script:
   - ps: echo "test build_script"
 
 on_success:
-  - if "%IS_BUILD_ENABLED%"=="true" echo "test on_success"
+  - if "%IS_BUILD_ENABLED%"=="true" ( echo "test on_success" )
