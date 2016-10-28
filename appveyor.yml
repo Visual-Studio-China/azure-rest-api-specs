@@ -8,14 +8,14 @@ environment:
 
 before_build:
   - ps: |
-        $env:A=true
+        $env:A=$true
         if($env:A)
         {
           echo "test A"
         }
         if($env:APPVEYOR_SCHEDULED_BUILD -or ($env:APPVEYOR_REPO_COMMIT_AUTHOR -eq $env:opbuilduser))
         {
-          $env:shouldRun=true
+          $env:shouldRun=$true
           echo "yes"
         }
         if($env:shouldRun)
