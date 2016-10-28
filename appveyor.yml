@@ -7,6 +7,8 @@ environment:
 
 before_build:
   - ps: |
+        echo $env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL
+        echo $opbuilduseremail
         if($env:APPVEYOR_SCHEDULED_BUILD -or ($env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL -eq $opbuilduseremail))
         {
           echo "test before_build"
