@@ -27,6 +27,7 @@ build_script:
   - ps: echo "test build_script"
 
 on_success:
-  - if "%shouldRun%" (
+  - |
+    if "%shouldRun%" (
         echo "test on_success"
     )
