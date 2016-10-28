@@ -10,6 +10,10 @@ before_build:
   - ps: |
         if($env:APPVEYOR_SCHEDULED_BUILD -or ($env:APPVEYOR_REPO_COMMIT_AUTHOR -eq $env:opbuilduser))
         {
+          $env:shouldRun=true
+        }
+        if($env:shouldRun)
+        {
           echo "test before_build"
         }
   
@@ -17,6 +21,6 @@ build_script:
   - ps: echo "test build_script"
 
 on_success:
-  - if "%APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL%" == "%opbuilduseremail%" (
-      echo "test on_success"
+  - if "%shouldRun%" (
+        echo "test on_success"
     )
