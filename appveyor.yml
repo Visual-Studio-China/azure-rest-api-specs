@@ -22,6 +22,6 @@ build_script:
 
 on_success:
   - cmd: | 
-         if %IS_BUILD_ENABLED% (
+         if "%IS_BUILD_ENABLED%" == "true" (
            echo "test on_success"
          )
