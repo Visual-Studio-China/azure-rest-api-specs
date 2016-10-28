@@ -6,10 +6,8 @@ environment:
     secure: JWSy9tPo2eoTYpPQplvokf4IiVk6onNBbWwAs6nNWWyQ2JaO+MRAg/QzbJnTjpUm
 
 before_build:
-  - ps: echo $env:APPVEYOR_REPO_COMMIT_AUTHOR_email
-        echo $env:opbuilduseremail
-        echo $opbuilduseremail
-        if($env:APPVEYOR_SCHEDULED_BUILD -or ($env:APPVEYOR_REPO_COMMIT_AUTHOR_email -eq $opbuilduseremail))
+  - ps: |
+        if($env:APPVEYOR_SCHEDULED_BUILD -or ($env:APPVEYOR_REPO_COMMIT_AUTHOR_EMAIL -eq $opbuilduseremail))
         {
           echo "test before_build"
         }
